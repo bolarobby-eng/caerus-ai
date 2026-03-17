@@ -154,7 +154,7 @@ p {
     left: 0;
     right: 0;
     z-index: 1000;
-    padding: 16px 0;
+    padding: 6px 0;
     background: rgba(10, 10, 11, 0.8);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-color);
@@ -257,9 +257,9 @@ p {
 .hero {
     min-height: 100vh;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     position: relative;
-    padding: 120px 24px 80px;
+    padding: 60px 24px 80px;
     overflow: hidden;
 }
 
@@ -417,7 +417,7 @@ p {
 
 .section-tag {
     display: inline-block;
-    font-size: 0.8125rem;
+    font-size: 1.125rem;
     font-weight: 500;
     color: var(--accent-primary);
     text-transform: uppercase;
@@ -427,6 +427,7 @@ p {
 
 .section-header h2 {
     margin-bottom: 16px;
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
 }
 
 .section-header p {
@@ -837,7 +838,7 @@ p {
 
 @media (max-width: 480px) {
     .hero {
-        padding-top: 100px;
+        padding-top: 60px;
     }
     
     .service-section,
