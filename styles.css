@@ -479,6 +479,18 @@ p {
     background-clip: text;
 }
 
+/* ===== Web/Mobile Section ===== */
+.web-mobile-section .section-tag {
+    color: #10b981;
+}
+
+.web-mobile-section .gradient-text {
+    background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
 /* ===== Google Ads / Pricing Section ===== */
 .google-ads-section {
     background: var(--bg-secondary);
