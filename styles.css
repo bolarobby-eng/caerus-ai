@@ -467,6 +467,195 @@ p {
     font-size: 0.9375rem;
 }
 
+/* ===== Google Ads / Pricing Section ===== */
+.google-ads-section {
+    background: var(--bg-secondary);
+}
+
+.google-ads-section .section-tag {
+    color: #4285f4;
+}
+
+.google-ads-section .gradient-text {
+    background: linear-gradient(135deg, #4285f4 0%, #34a853 50%, #fbbc04 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 64px;
+}
+
+.pricing-card {
+    padding: 36px 32px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: var(--transition-base);
+}
+
+.pricing-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-color-hover);
+    transform: translateY(-4px);
+}
+
+.pricing-card--featured {
+    border-color: var(--accent-primary);
+    background: rgba(99, 102, 241, 0.06);
+    position: relative;
+}
+
+.pricing-card--featured:hover {
+    border-color: var(--accent-secondary);
+    background: rgba(99, 102, 241, 0.1);
+}
+
+.pricing-badge {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-tertiary);
+}
+
+.pricing-badge--featured {
+    color: var(--accent-primary);
+}
+
+.pricing-popular {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-gradient);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 100px;
+    white-space: nowrap;
+}
+
+.pricing-setup {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.pricing-setup span {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    font-weight: 400;
+}
+
+.pricing-monthly {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+}
+
+.pricing-monthly span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-tertiary);
+}
+
+.pricing-desc {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.pricing-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.pricing-features li {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    padding-left: 4px;
+}
+
+.pricing-budget {
+    font-size: 0.8125rem;
+    color: var(--text-tertiary);
+    font-style: italic;
+    padding-top: 8px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Add-ons block */
+.addons-block {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+}
+
+.addons-block h3 {
+    margin-bottom: 24px;
+    font-size: 1.25rem;
+}
+
+.addons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.addon-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    gap: 12px;
+}
+
+.addon-name {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+}
+
+.addon-price {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
+.addons-note {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    font-style: italic;
+}
+
+@media (max-width: 900px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 /* ===== Bitcoin Section ===== */
 .bitcoin-section {
     background: linear-gradient(180deg, var(--bg-primary) 0%, rgba(247, 147, 26, 0.05) 100%);
