@@ -3,7 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CaerusAI helps SMBs accelerate growth with AI-powered chat automation, marketing, web/mobile apps, business admin automation and Bitcoin integration. Based in the UK.">
     <title>CaerusAI — Accelerate Business Growth with AI</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="CaerusAI — Accelerate Business Growth with AI">
+    <meta property="og:description" content="AI-powered solutions for SMBs: chat automation, marketing, web/mobile development, business admin and Bitcoin integration.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://caerusai.co">
+    <meta property="og:image" content="https://caerusai.co/og-image.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CaerusAI — Accelerate Business Growth with AI">
+    <meta name="twitter:description" content="AI-powered solutions for SMBs: chat automation, marketing, web/mobile development, business admin and Bitcoin integration.">
+    <meta name="twitter:image" content="https://caerusai.co/og-image.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' style='stop-color:%236366f1'/><stop offset='100%25' style='stop-color:%238b5cf6'/></linearGradient></defs><rect width='100' height='100' rx='20' fill='url(%23g)'/><text x='50' y='68' font-family='Inter,sans-serif' font-size='48' font-weight='700' fill='white' text-anchor='middle'>C</text></svg>">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "CaerusAI",
+      "url": "https://caerusai.co",
+      "description": "AI adoption consultancy for SMBs — chat automation, marketing, web/mobile development, business admin automation and Bitcoin integration.",
+      "email": "hello@caerusai.co",
+      "areaServed": "GB",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "GB"
+      },
+      "sameAs": [],
+      "serviceType": ["AI Consulting", "Chat Automation", "Digital Marketing", "Web Development", "Mobile App Development", "Bitcoin Integration"]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,7 +51,8 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="#home" class="logo">
-
+                <span class="logo-text">CaerusAI</span>
+                <span class="logo-icon">✦</span>
             </a>
             <div class="nav-links">
                 <a href="#chat-automation">Chat Automation</a>
@@ -274,7 +312,7 @@
                 <div class="pricing-card">
                     <div class="pricing-badge">Starter</div>
                     <div class="pricing-setup">£1,500 <span>one-off</span></div>
-                    <div class="pricing-monthly" style="font-size:1.5rem; padding-top:4px; color: var(--text-tertiary);">No monthly fee</div>
+                    <div class="pricing-monthly pricing-monthly--none">No monthly fee</div>
                     <p class="pricing-desc">A clean, professional web presence with a smart AI touch.</p>
                     <ul class="pricing-features">
                         <li>✦ Up to 5 pages (Home, About, Services, Blog, Contact)</li>
@@ -443,7 +481,7 @@
                 <div class="pricing-card">
                     <div class="pricing-badge">Starter</div>
                     <div class="pricing-setup">£799 <span>one-off</span></div>
-                    <div class="pricing-monthly" style="font-size:1.5rem; padding-top:4px; color: var(--text-tertiary);">No monthly fee</div>
+                    <div class="pricing-monthly pricing-monthly--none">No monthly fee</div>
                     <p class="pricing-desc">Start accepting Bitcoin payments quickly with minimal friction.</p>
                     <ul class="pricing-features">
                         <li>✦ Lightning Network payment setup</li>
@@ -562,7 +600,7 @@
             </div>
             <div class="faq-grid">
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button class="faq-question" aria-expanded="false">
                         <span>How long does it take to implement an AI solution?</span>
                         <span class="faq-icon">+</span>
                     </button>
@@ -571,7 +609,7 @@
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button class="faq-question" aria-expanded="false">
                         <span>Do I need technical expertise to work with CaerusAI?</span>
                         <span class="faq-icon">+</span>
                     </button>
@@ -580,7 +618,7 @@
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button class="faq-question" aria-expanded="false">
                         <span>How do you ensure data privacy and security?</span>
                         <span class="faq-icon">+</span>
                     </button>
@@ -589,7 +627,7 @@
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button class="faq-question" aria-expanded="false">
                         <span>What makes CaerusAI different from other AI companies?</span>
                         <span class="faq-icon">+</span>
                     </button>
@@ -598,7 +636,7 @@
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button class="faq-question" aria-expanded="false">
                         <span>Can AI solutions integrate with my existing systems?</span>
                         <span class="faq-icon">+</span>
                     </button>
@@ -607,7 +645,7 @@
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button class="faq-question" aria-expanded="false">
                         <span>What's the pricing model?</span>
                         <span class="faq-icon">+</span>
                     </button>
@@ -634,11 +672,11 @@
                         </div>
                         <div class="contact-item">
                             <span class="contact-icon">📍</span>
-                            <span>London, United Kingdom</span>
+                            <span>United Kingdom</span>
                         </div>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/placeholder" method="POST">
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Your Name" required>
                     </div>
@@ -649,8 +687,7 @@
                         <select name="service" required>
                             <option value="" disabled selected>What are you interested in?</option>
                             <option value="chat">Chat Automation</option>
-                            <option value="marketing">AI Marketing</option>
-                            <option value="google-ads">Google Ads Management</option>
+                            <option value="marketing">AI Marketing &amp; Google Ads</option>
                             <option value="web-mobile">Web/Mobile Development</option>
                             <option value="admin">Business Admin Automation</option>
                             <option value="bitcoin">Bitcoin Integration</option>
@@ -700,6 +737,9 @@
             </div>
         </div>
     </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
     <script src="script.js"></script>
 </body>
