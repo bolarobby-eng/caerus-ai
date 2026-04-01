@@ -109,6 +109,30 @@ contactForm.addEventListener('submit', async (e) => {
     }, 3000);
 });
 
+// ===== Pricing Toggle (Collapsible) =====
+document.querySelectorAll('.pricing-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const collapsible = btn.nextElementSibling;
+        const isOpen = btn.classList.contains('active');
+        btn.classList.toggle('active');
+        btn.setAttribute('aria-expanded', !isOpen);
+        btn.querySelector('.pricing-toggle-text').textContent = isOpen ? 'View Pricing' : 'Hide Pricing';
+        collapsible.classList.toggle('open');
+
+        // Trigger animation on cards inside when opening
+        if (!isOpen) {
+            collapsible.querySelectorAll('.pricing-card, .addons-block').forEach((el, i) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 100 + i * 80);
+            });
+        }
+    });
+});
+
 // ===== Intersection Observer for Animations =====
 const observerOptions = {
     threshold: 0.1,
@@ -123,12 +147,25 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all animatable elements (including pricing cards and addons)
-document.querySelectorAll('.feature-card, .section-header, .about-card, .faq-item, .pricing-card, .addons-block').forEach(el => {
+// Observe all animatable elements (excluding pricing cards/addons inside collapsibles — those animate on toggle)
+document.querySelectorAll('.feature-card, .section-header, .about-card, .faq-item').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
+});
+
+// For pricing cards/addons NOT inside a collapsible (shouldn't exist now, but just in case)
+document.querySelectorAll('.pricing-card, .addons-block').forEach(el => {
+    if (!el.closest('.pricing-collapsible')) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    } else {
+        // Inside collapsible — set transition but don't set initial opacity (handled by toggle)
+        el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    }
 });
 
 // Add animation class styles dynamically

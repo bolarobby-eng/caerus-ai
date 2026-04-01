@@ -712,6 +712,59 @@ p {
     font-style: italic;
 }
 
+/* ===== Pricing Toggle & Collapsible ===== */
+.pricing-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    margin: 0 auto 32px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 100px;
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-base);
+    /* center the button */
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pricing-toggle:hover {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(139, 92, 246, 0.25) 100%);
+    border-color: rgba(99, 102, 241, 0.5);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.2);
+}
+
+.pricing-toggle-icon {
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.pricing-toggle.active .pricing-toggle-icon {
+    transform: rotate(180deg);
+}
+
+.pricing-collapsible {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+    opacity: 0;
+}
+
+.pricing-collapsible.open {
+    max-height: 3000px;
+    opacity: 1;
+}
+
 /* "No monthly fee" variant */
 .pricing-monthly--none {
     font-size: 1.5rem;
@@ -1126,6 +1179,13 @@ p {
         flex-direction: column;
         gap: 8px;
         text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .pricing-toggle {
+        padding: 10px 22px;
+        font-size: 0.875rem;
     }
 }
 
