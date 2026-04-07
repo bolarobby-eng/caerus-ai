@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="CaerusAI helps SMBs accelerate growth with AI-powered chat automation, marketing, web/mobile apps and business admin automation. Based in the UK.">
     <title>CaerusAI — Accelerate Business Growth with AI</title>
+    <link rel="canonical" href="https://caerusai.co/">
+    <meta name="theme-color" content="#0a0a0b">
 
     <!-- Open Graph -->
     <meta property="og:title" content="CaerusAI — Accelerate Business Growth with AI">
@@ -63,7 +65,7 @@
                 <a href="#about">About</a>
                 <a href="#contact" class="nav-cta">Get Started</a>
             </div>
-            <button class="mobile-menu-btn" aria-label="Menu">
+            <button class="mobile-menu-btn" aria-label="Menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -733,26 +735,31 @@
                         </div>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm" action="https://formspree.io/f/placeholder" method="POST">
+                <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="19983a91-8d01-4e10-b57e-734384ae128f">
+                    <input type="hidden" name="subject" value="New CaerusAI Enquiry">
                     <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
+                        <label for="contact-name" class="sr-only">Name</label>
+                        <input type="text" id="contact-name" name="name" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required>
+                        <label for="contact-email" class="sr-only">Email</label>
+                        <input type="email" id="contact-email" name="email" placeholder="Your Email" required>
                     </div>
                     <div class="form-group">
-                        <select name="service" required>
+                        <label for="contact-service" class="sr-only">Service</label>
+                        <select id="contact-service" name="service" required>
                             <option value="" disabled selected>What are you interested in?</option>
                             <option value="chat">Chat Automation</option>
                             <option value="marketing">AI Marketing &amp; Google Ads</option>
                             <option value="web-mobile">Web/Mobile Development</option>
                             <option value="admin">Business Admin Automation</option>
-                            <option value="bitcoin">Bitcoin Integration</option>
                             <option value="other">Other / Not Sure</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <textarea name="message" placeholder="Tell us about your project..." rows="4" required></textarea>
+                        <label for="contact-message" class="sr-only">Message</label>
+                        <textarea id="contact-message" name="message" placeholder="Tell us about your project..." rows="4" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary btn-full">Send Message</button>
                 </form>
@@ -778,7 +785,6 @@
                         <a href="#google-ads">Marketing</a>
                         <a href="#web-mobile">Web/Mobile</a>
                         <a href="#business-admin">Business Admin</a>
-                        <a href="#bitcoin">Bitcoin</a>
                     </div>
                     <div class="footer-column">
                         <h4>Company</h4>
