@@ -3,8 +3,9 @@ const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('active');
+    const isOpen = mobileMenu.classList.toggle('active');
     mobileMenuBtn.classList.toggle('active');
+    mobileMenuBtn.setAttribute('aria-expanded', isOpen);
 });
 
 // Close mobile menu when clicking a link
@@ -12,6 +13,7 @@ document.querySelectorAll('.mobile-menu a').forEach(link => {
     link.addEventListener('click', () => {
         mobileMenu.classList.remove('active');
         mobileMenuBtn.classList.remove('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
     });
 });
 
@@ -35,24 +37,16 @@ document.querySelectorAll('.faq-question').forEach(button => {
     });
 });
 
-// ===== Navbar Background on Scroll =====
+// ===== Unified Scroll Handler (rAF-throttled) =====
 const navbar = document.querySelector('.navbar');
-
-window.addEventListener('scroll', () => {
-    const currentScroll = window.scrollY;
-    
-    if (currentScroll > 50) {
-        navbar.style.background = 'rgba(10, 10, 11, 0.95)';
-    } else {
-        navbar.style.background = 'rgba(10, 10, 11, 0.8)';
-    }
-});
 
 // ===== Smooth Scroll for Anchor Links =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#') return;
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(href);
         if (target) {
             target.scrollIntoView({
                 behavior: 'smooth',
@@ -148,68 +142,69 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all animatable elements (excluding pricing cards/addons inside collapsibles — those animate on toggle)
-document.querySelectorAll('.feature-card, .section-header, .about-card, .faq-item').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+document.querySelectorAll('.section-header, .about-card, .faq-item').forEach(el => {
+    el.classList.add('will-animate');
     observer.observe(el);
 });
 
 // For pricing cards/addons NOT inside a collapsible (shouldn't exist now, but just in case)
 document.querySelectorAll('.pricing-card, .addons-block').forEach(el => {
     if (!el.closest('.pricing-collapsible')) {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        el.classList.add('will-animate');
         observer.observe(el);
     } else {
-        // Inside collapsible — set transition but don't set initial opacity (handled by toggle)
-        el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+        // Inside collapsible — transition only, no initial opacity (handled by toggle)
+        el.classList.add('will-animate-collapsible');
     }
 });
 
-// Add animation class styles dynamically
-const style = document.createElement('style');
-style.textContent = `
-    .animate-in {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-    }
-`;
-document.head.appendChild(style);
 
 // ===== Active Nav Link Highlighting =====
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
 
-window.addEventListener('scroll', () => {
+// ===== Back to Top Button =====
+const backToTop = document.getElementById('backToTop');
+
+let scrollTicking = false;
+
+function onScroll() {
+    const scrollY = window.scrollY;
+
+    // Navbar background
+    navbar.style.background = scrollY > 50
+        ? 'rgba(10, 10, 11, 0.95)'
+        : 'rgba(10, 10, 11, 0.8)';
+
+    // Active nav link
     let current = '';
-    
     sections.forEach(section => {
         const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.offsetHeight;
-        
-        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+        if (scrollY >= sectionTop && scrollY < sectionTop + section.offsetHeight) {
             current = section.getAttribute('id');
         }
     });
-    
     navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === `#${current}`) {
             link.classList.add('active');
         }
     });
-});
 
-// ===== Back to Top Button =====
-const backToTop = document.getElementById('backToTop');
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 600) {
+    // Back to top visibility
+    if (scrollY > 600) {
         backToTop.classList.add('visible');
     } else {
         backToTop.classList.remove('visible');
+    }
+
+    scrollTicking = false;
+}
+
+window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+        requestAnimationFrame(onScroll);
+        scrollTicking = true;
     }
 });
 
