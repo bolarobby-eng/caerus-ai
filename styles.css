@@ -74,18 +74,25 @@ h1 {
     letter-spacing: -0.02em;
 }
 
+.hero-title-wrap {
+    position: relative;
+    display: inline-block;
+}
+
 .hero-title {
-    display: inline-flex;
-    align-items: center;
-    gap: 18px;
+    display: block;
+    text-align: center;
 }
 
 .hero-logo-mark {
+    position: absolute;
+    right: calc(100% + 18px);
+    top: 50%;
+    transform: translateY(-50%);
     width: clamp(64px, 10vw, 110px);
     height: clamp(64px, 10vw, 110px);
     object-fit: cover;
     border-radius: 50%;
-    flex-shrink: 0;
     box-shadow: 0 14px 40px rgba(66, 76, 255, 0.24);
 }
 
@@ -181,6 +188,10 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.nav-container-minimal {
+    justify-content: flex-end;
 }
 
 .logo {
@@ -1156,11 +1167,15 @@ p {
         height: 38px;
     }
 
-    .hero-title {
+    .hero-title-wrap {
+        display: inline-flex;
+        align-items: center;
         gap: 12px;
     }
 
     .hero-logo-mark {
+        position: static;
+        transform: none;
         width: 56px;
         height: 56px;
     }
