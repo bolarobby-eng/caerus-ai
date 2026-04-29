@@ -316,9 +316,9 @@ p {
 .hero {
     min-height: 72vh;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     position: relative;
-    padding: 44px 24px 40px;
+    padding: 100px 24px 60px;
     overflow: hidden;
 }
 
@@ -330,7 +330,7 @@ p {
 
 .hero-content {
     max-width: 1200px;
-    margin: 16px auto 0;
+    margin: 0 auto;
     text-align: center;
     position: relative;
     z-index: 2;
@@ -1183,6 +1183,12 @@ p {
     .mobile-menu-btn {
         display: flex;
     }
+
+    .navbar {
+        background: var(--bg-primary);
+        backdrop-filter: none;
+        border-bottom: none;
+    }
     
     .hero-stats {
         flex-direction: column;
@@ -1219,7 +1225,7 @@ p {
 @media (max-width: 480px) {
     .hero {
         min-height: auto;
-        padding-top: 36px;
+        padding-top: 80px;
         padding-bottom: 28px;
     }
     

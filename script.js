@@ -172,9 +172,10 @@ function onScroll() {
     const scrollY = window.scrollY;
 
     // Navbar background
+    const isMobile = window.innerWidth <= 768;
     navbar.style.background = scrollY > 50
         ? 'rgba(10, 10, 11, 0.95)'
-        : 'rgba(10, 10, 11, 0.8)';
+        : isMobile ? '#0a0a0b' : 'rgba(10, 10, 11, 0.8)';
 
     // Active nav link
     let current = '';
